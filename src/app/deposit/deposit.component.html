@@ -1,0 +1,29 @@
+
+<div class="mb-3">
+  <mat-form-field floatLabel="always" >
+    <mat-label>Amount</mat-label>
+    <input matInput type="number" class="example-right-align" pattern="[0-9]+" placeholder="0" [(ngModel)]="amount" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+    <span matTextPrefix>$&nbsp;</span>
+    <span matTextSuffix>.00</span>
+  </mat-form-field>
+</div>
+<div class="mb-3">
+  <mat-form-field>
+    <mat-label>Means Methode</mat-label>
+    <mat-select [(ngModel)]="selectedMeanPayment">
+      <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">Select means methode</mat-hint>
+  </mat-form-field>
+</div>
+<div class="mb-3">
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <input  matInput placeholder="Ex. Pizza" [value]="description"/>
+  </mat-form-field>
+</div>
+<div class="mb-3">
+  <button mat-icon-button matTooltip="Add" aria-label="Add deposit" (click)="addDeposit()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
